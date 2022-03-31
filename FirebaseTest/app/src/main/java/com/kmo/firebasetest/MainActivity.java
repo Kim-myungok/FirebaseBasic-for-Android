@@ -1,10 +1,15 @@
 package com.kmo.firebasetest;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 
@@ -21,6 +26,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+
+import java.util.List;
 
 /**
  * Demonstrate Firebase Authentication using a Google ID Token.
@@ -63,6 +70,31 @@ public class MainActivity extends Activity {
                 startActivityForResult(signInIntent, RC_SIGN_IN);
             }
         });
+
+    }
+
+    /*   앱 존재 유뮤 체크   */
+    public boolean getPackageList(String AppName) {
+        boolean isExist = false;
+        PackageManager pkgMgr = getPackageManager();
+        List<ResolveInfo> mApps;
+        Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
+        mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+        mApps = pkgMgr.queryIntentActivities(mainIntent, 0);
+        try {
+            for (int i = 0; i < mApps.size(); i++) {
+                if(mApps.get(i).activityInfo.packageName.startsWith(AppName)){
+                    isExist = true;
+                    break;
+                }
+            }
+        }
+        catch (Exception e) {
+            Intent Intent_store = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id="+AppName));
+            startActivity(Intent_store);
+            isExist = false;
+        }
+        return isExist;
     }
 
     // [START on_start_check_user]
