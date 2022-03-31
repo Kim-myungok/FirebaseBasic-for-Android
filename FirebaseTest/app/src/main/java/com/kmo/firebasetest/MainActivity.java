@@ -71,6 +71,30 @@ public class MainActivity extends Activity {
             }
         });
 
+        Button btn_internet = (Button) findViewById(R.id.btn_internet);
+        btn_internet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent IntentInternet = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.naver.com"));
+                startActivity(IntentInternet);
+            }
+        });
+
+        Button btn_coupang = (Button) findViewById(R.id.btn_kakaotalk);
+        btn_coupang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String AppPkg = "com.kakao.talk";
+                if(getPackageList(AppPkg)) {
+                    //ComponentName compName = new ComponentName(AppPkg, AppPkg+".activity.SplashActivity");//패키지명, 액티비티명
+                    //intent_coupang.setComponent(compName);
+                    Intent IntentKakaotalk = getPackageManager().getLaunchIntentForPackage(AppPkg);
+                    IntentKakaotalk.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(IntentKakaotalk);
+                }
+            }
+        });
+
     }
 
     /*   앱 존재 유뮤 체크   */

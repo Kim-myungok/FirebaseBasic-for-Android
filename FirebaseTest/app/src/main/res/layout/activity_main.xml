@@ -13,16 +13,76 @@
         android:theme="@style/Theme.FirebaseTest.AppBarOverlay">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/apptitle"
             android:layout_width="match_parent"
             android:layout_height="43dp"
             android:background="@color/colar_500"
             android:gravity="center"
-            android:text="Firbase를 이용한 구글 계정으로 로그인"
+            android:text="다른 앱 실행 TEST"
             android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
 
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            android:textColor="@color/white"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="0dp" />
     </com.google.android.material.appbar.AppBarLayout>
+
+    <Button
+        android:id="@+id/btn_internet"
+        android:layout_width="181dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:background="@color/green"
+        android:text="Naver"
+        app:layout_constraintBottom_toTopOf="@+id/btn_kakaotalk"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.011"
+        app:layout_constraintStart_toEndOf="@+id/NAVER" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/NAVER"
+        android:layout_width="49dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/KAKAOTALK"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/naver" />
+
+    <Button
+        android:id="@+id/btn_kakaotalk"
+        android:layout_width="181dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="240dp"
+        android:background="@color/yello"
+        android:text="KAKAOTALK"
+        app:layout_constraintBottom_toTopOf="@+id/LoginButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/KAKAOTALK" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/KAKAOTALK"
+        android:layout_width="49dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="240dp"
+        app:layout_constraintBottom_toTopOf="@+id/LoginButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.267"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/kakaotalk" />
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.FirebaseTest.AppBarOverlay"><![CDATA[
+
+        android:textColor="@color/white" />
+
+    ]]></com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/LoginButton"
@@ -36,12 +96,11 @@
         android:layout_width="228dp"
         android:layout_height="40dp"
         android:layout_gravity="bottom|end"
+        android:layout_marginBottom="344dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/appBarLayout"
-        app:layout_constraintVertical_bias="0.461" />
+        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/imageFilterView"
@@ -53,7 +112,7 @@
         app:layout_constraintHorizontal_bias="0.953"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LoginButton"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.438"
         app:srcCompat="@drawable/flower" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
@@ -66,7 +125,24 @@
         app:layout_constraintHorizontal_bias="0.835"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LoginButton"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/flower" />
+
+    <TextView
+        android:id="@+id/firebase"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/colar_500"
+        android:gravity="center"
+        android:text="Firbase를 이용한 구글 계정으로 로그인"
+        android:textAlignment="center"
+
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/LoginButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_kakaotalk"
+        app:layout_constraintVertical_bias="0.487" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
